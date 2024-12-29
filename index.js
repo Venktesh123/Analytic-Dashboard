@@ -15,6 +15,16 @@ app.use(cors());
 
 // Connect to MongoDB
 connectDB();
+app.use(bodyParser.json());
+
+// Routes
+app.use("/api", userActivityRoutes);
+app.use("/api", salesRoutes);
+app.use("/api", dashboardRoutes);
+app.use("/api", userRoutes);
+
+// Start the server
+
 app.get("/", (req, res) => {
   res.send("Backend Working ON Port 3000");
 });
